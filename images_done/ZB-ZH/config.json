@@ -1,0 +1,69 @@
+{
+    "gallery": {
+        "title": "Zentralbibliothek Zürich",
+        "images_river": {
+            "image1": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_A_Gossau_au_Canton_de_Zurich_-_000010918_1.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_A_Gossau_au_Canton_de_Zurich_-_000010918_1_Floated_Layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_A_Gossau_au_Canton_de_Zurich_-_000010918_1.jpg.xml"
+                }
+            },
+			"image2": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Ansicht_des_durchgegrabenen_neuen_Auslaufs_der_Glatt_in_den_Rhein_-_000008220_2.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Ansicht_des_durchgegrabenen_neuen_Auslaufs_der_Glatt_in_den_Rhein_-_000008220_2.jpg_Floating_layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Ansicht_des_durchgegrabenen_neuen_Auslaufs_der_Glatt_in_den_Rhein_-_000008220_2.jpg.xml"
+                }
+            },
+			"image3": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Der_Landsitz_Bocken_nach_dem_Gefecht_um_das_Landhaus_während_des_Bockenkrieges_am_28_März_1804_-_000000423.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Der_Landsitz_Bocken_nach_dem_Gefecht_um_das_Landhaus_während_des_Bockenkrieges_am_28_März_1804_-_000000423.jpg_floating_layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Der_Landsitz_Bocken_nach_dem_Gefecht_um_das_Landhaus_während_des_Bockenkrieges_am_28_März_1804_-_000000423.jpg.xml"
+                }
+            },
+			"image4": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Der_Schutz_im_Roschbach_im_Canton_Zürich_No_25_-_000007884.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Der_Schutz_im_Roschbach_im_Canton_Zürich_No_25_-_000007884.jpg_floating_layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Der_Schutz_im_Roschbach_im_Canton_Zürich_No_25_-_000007884.jpg.xml"
+                }
+            },
+			"image5": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Die_Eiserne_Thurbrücke_Ansicht_von_Osten_gegen_Andelfingen_-_000010346.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Die_Eiserne_Thurbrücke_Ansicht_von_Osten_gegen_Andelfingen_-_000010346.jpg_Floating_layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Die_Eiserne_Thurbrücke_Ansicht_von_Osten_gegen_Andelfingen_-_000010346.jpg.xml"
+                }
+            },
+			"image6": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Gegen_die_Bodmers_Mühle_im_Canton_Zürich_-_000006145.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Gegen_die_Bodmers_Mühle_im_Canton_Zürich_-_000006145.jpg_Floated Layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Gegen_die_Bodmers_Mühle_im_Canton_Zürich_-_000006145.jpg.xml"
+                },
+			"image7": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Herliberg_le_village_au_bord_du_Lac_de_Zuric_du_Côté_de_lorient_-_000007613.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Herliberg_le_village_au_bord_du_Lac_de_Zuric_du_Côté_de_lorient_-_000007613.jpg_Floated_Layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Herliberg_le_village_au_bord_du_Lac_de_Zuric_du_Côté_de_lorient_-_000007613.jpg.xml"
+                },
+			"image8": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Jajce_Wasserfall_-_400017380.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Jajce_Wasserfall_-_400017380.jpg_Floated_Layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Jajce_Wasserfall_-_400017380.jpg.xml"
+                },
+			"image9": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Prospect_des_Rheinfahls_ohnweitt_Schaffhausen_nach_der_Natur_No_4_-_000009518.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Prospect_des_Rheinfahls_ohnweitt_Schaffhausen_nach_der_Natur_No_4_-_000009518.jpg_Floated_Layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Prospect_des_Rheinfahls_ohnweitt_Schaffhausen_nach_der_Natur_No_4_-_000009518.jpg.xml"
+                },
+			"image10": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Vue_perspective_de_la_ville_du_lac_et_environs_de_Zuric_prise_à_lAuberge_de_lEpée_du_Coté_de_lOrient_-_000008012.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Vue_perspective_de_la_ville_du_lac_et_environs_de_Zuric_prise_à_lAuberge_de_lEpée_du_Coté_de_lOrient_-_000008012.jpg_Floated_Layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Vue_perspective_de_la_ville_du_lac_et_environs_de_Zuric_prise_à_lAuberge_de_lEpée_du_Coté_de_lOrient_-_000008012.jpg.xml"
+                },
+			"image11": {
+                "fileBackground": "Zentralbibliothek_Zürich_-_Zürich_vom_See_-_000008159.jpg.png",
+                "fileLayer": "Zentralbibliothek_Zürich_-_Zürich_vom_See_-_000008159.jpg_Floated_Layer.png",
+                "meta": "Zentralbibliothek_Zürich_-_Zürich_vom_See_-_000008159.jpg.xml"
+                }
+            }
+
+        }
+    }
+}
