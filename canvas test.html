@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" width="700" height="700"
+        style="border:1px solid #000000;">
+</canvas>
+
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var rand = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+
+    for (var i = 0;i < c.width; i++)
+    {
+        var color = '#0000' + rand[Math.floor((Math.random() * 13) + 2)] + rand[Math.floor((Math.random() * 13) + 2)];
+        ctx.fillStyle = color;
+        for (var j = 0; j < c.height; j++)
+        {
+            //alert(color);
+            ctx.fillRect(i,j,i,j);
+        }
+    }
+
+</script>
+</body>
+</html>
