@@ -27,23 +27,24 @@
     </head>
 
     <body>
-        <h1>Audio File Decoding Demo</h1>
-
-        <div class="controls">
- 
-            <button class="playButton">Play</button>
-        </div>
+        <h1>Viiso - Water Visualisation and Soundification</h1>
         <div class="view">
             <canvas id="waveform" height="200" width="960"></canvas>
         </div>
+        <div class="controls">
+            <button class="playButtonRiver">River</button>
+            <button class="playButtonMouse">Mouse</button>
+            <button class="playButtonMic">Mic</button>
+        </div>
         <div class="speedSelector">
-            <label for="playbackSpeed">Playback speed:</label>
+            <label for="playbackSpeed">River speed:</label>
             <input type="range" name="playbackSpeed" id="playbackSpeed" min="0.5" max="2.0" step="0.1" value="1.0" />
         </div>
 
         <script>
 
-            var synth = flock.synth({
+
+            var synthriver = flock.synth({
                 synthDef: {
                     ugen: "flock.ugen.scope",
 
@@ -64,20 +65,74 @@
                         canvas: "#waveform",
                         styles: {
                             strokeColor: "#888",
-                            strokeWidth: 1
+                            strokeWidth: 5
                         }
                     }
                 }
-            }),
+            });
 
-            playButtonView = demo.toggleButtonView(synth, ".playButton");
+
+var synthmouse = flock.synth({
+    synthDef: {
+        ugen: "flock.ugen.sin",
+        freq: {
+            ugen: "flock.ugen.value",
+            rate: "audio",
+            value: 400,
+            add: {
+                ugen: "flock.ugen.sin",
+                freq: {
+                    ugen: "flock.ugen.mouse.cursor",
+                    mul: 124,
+                    add: 62,
+                },
+                mul: {
+                    ugen: "flock.ugen.mouse.cursor",
+                    mul: 100,
+                    add: 100,
+                    options: {
+                        axis: "y"
+                    }
+                }
+            }
+        },
+        mul: 0.3
+    }
+});
+
+var synthmic = flock.synth({
+    synthDef: {
+        ugen: "flock.ugen.granulator",
+        delayDur: 1,
+        numGrains: {
+            ugen: "flock.ugen.lfNoise",
+            freq: 0.5,
+            mul: 10,
+            add: 10,
+            options: {
+                interpolation: "linear"
+            }
+        },
+        source: {
+            ugen: "flock.ugen.audioIn"
+        }
+    }
+});
+
+ 
+            playButtonView = demo.toggleButtonView(synthriver, ".playButtonRiver");
+            playButtonView = demo.toggleButtonView(synthmouse, ".playButtonMouse");
+            playButtonView = demo.toggleButtonView(synthmic, ".playButtonMic");
+
 
             // Dynamically change the playback speed of the playBuffer ugen based on changes to the slider.
             document.querySelector("#playbackSpeed").addEventListener("change", function (e) {
-                synth.input("player.speed", Number(e.target.value));
+                synthriver.input("player.speed", Number(e.target.value));
                 e.preventDefault();
                 e.stopPropagation();
             }, false);
+
+
         </script>
     </body>
 </html>
