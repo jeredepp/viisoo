@@ -115,7 +115,7 @@ var synthmouse = flock.synth({
         freq: {
             ugen: "flock.ugen.value",
             rate: "audio",
-            value: 50,
+            value: 1,
             add: {
                 ugen: "flock.ugen.sin",
                 freq: {
@@ -125,8 +125,8 @@ var synthmouse = flock.synth({
                 },
                 mul: {
                     ugen: "flock.ugen.mouse.cursor",
-                    mul: 100,
-                    add: 100,
+                    mul: 50,
+                    add: 50,
                     options: {
                         axis: "y"
                     }
