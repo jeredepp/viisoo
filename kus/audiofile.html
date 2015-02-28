@@ -27,14 +27,16 @@
     </head>
 
     <body>
-        <h1>Viiso - Water Visualisation and Soundification</h1>
+        <h1>Viisoo - Water Visualisation and Soundification</h1>
         <div class="view">
-            <canvas id="waveform" height="200" width="960"></canvas>
+            <canvas id="waveform" height="100" width="960"></canvas>
         </div>
         <div class="controls">
             <button class="playButtonRiver">River</button>
             <button class="playButtonMouse">Mouse</button>
             <button class="playButtonMic">Mic</button>
+            <button class="playButtonMoldau">Moldau</button>
+<!--/*            <button class="playButtonStone">Play</button> -->
         </div>
         <div class="speedSelector">
             <label for="playbackSpeed">River speed:</label>
@@ -71,6 +73,32 @@
                 }
             });
 
+var synthmoldau = flock.synth({
+    synthDef: {
+        ugen: "flock.ugen.playBuffer",
+        buffer: {
+            url: "sounds/moldau.mp3"
+        },
+                        speed: 1.0,
+                        loop: 1.0
+    }
+});
+
+
+
+var synthstone = flock.synth({
+    synthDef: {
+        ugen: "flock.ugen.playBuffer",
+        buffer: {
+            id: "chord",
+            url: "sounds/stone.mp3"
+        },
+        trigger: {
+            ugen: "flock.ugen.mouse.click"
+        }
+    }
+});
+
 
 var synthmouse = flock.synth({
     synthDef: {
@@ -78,7 +106,7 @@ var synthmouse = flock.synth({
         freq: {
             ugen: "flock.ugen.value",
             rate: "audio",
-            value: 400,
+            value: 50,
             add: {
                 ugen: "flock.ugen.sin",
                 freq: {
@@ -123,6 +151,9 @@ var synthmic = flock.synth({
             playButtonView = demo.toggleButtonView(synthriver, ".playButtonRiver");
             playButtonView = demo.toggleButtonView(synthmouse, ".playButtonMouse");
             playButtonView = demo.toggleButtonView(synthmic, ".playButtonMic");
+            playButtonView = demo.toggleButtonView(synthmoldau, ".playButtonMoldau");
+//            $( ".playButtonStone" ).click(function() {  synthstone.play();});
+
 
 
             // Dynamically change the playback speed of the playBuffer ugen based on changes to the slider.
