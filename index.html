@@ -54,39 +54,48 @@
 			margin-top: 50px;
 		}
 		
-		#playButtonRiver{
-    position:absolute;
-    bottom: 5%;
-    right:13%;
+		.playButtonRiver{
+			position:absolute;
+			bottom: 5%;
+			right:13%;
+			width: 70px;
+			height: 150px;
 
 		}
 		
-		#playButtonMouse{
-    position:absolute;
-    bottom: 5%;
-    right:29%;
+		.playButtonMouse{
+			position:absolute;
+			bottom: 5%;
+			right:29%;
+			width: 70px;
+			height: 150px;
 
 		}
 		
-		#playButtonMic{
-    position:absolute;
-    bottom: 5%;
-    right:41%;
+		.playButtonMic{
+			position:absolute;
+			bottom: 5%;
+			right:41%;
+			width: 70px;
+			height: 150px;
 
 		}
 		
-		#playButtonMoldau{
-    position:absolute;
-    bottom: 5%;
-    right:65%;
+		.playButtonMoldau{
+			position:absolute;
+			bottom: 5%;
+			right:65%;
+			width: 70px;
+			height: 150px;
 
 		}
 		
-		#playButtonBirds{
-    position:absolute;
-    bottom: 5%;
-    right:75%;
-
+		.playButtonBirds{
+			position:absolute;
+			bottom: 5%;
+			right:75%;
+			width: 70px;
+			height: 150px;
 		}
 		
 	
@@ -103,13 +112,19 @@
   </div>
 	<div id="slider"></div>
 	
-	<div id="playButtonRiver">River</div>
-    <div id="playButtonMouse">Mouse</div>
-    <div id="playButtonMic">Mic</div>
-    <div id="playButtonMoldau">Moldau</div>
-    <div id="playButtonBirds">Birds</div>
-			
+	<div class="playButtonRiver"></div>
+    <div class="playButtonMouse"></div>
+    <div class="playButtonMic"></div>
+    <div class="playButtonMoldau"></div>
+    <div class="playButtonBirds"></div>
+			<div class="view" style="display:none;">
+            <canvas id="waveform" height="100" width="960"></canvas>
+        </div>
     <script type="text/javascript" src="js/jquery-ui-1.11.3.custom/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.11.3.custom/jquery-ui.min.js"></script>
+    
+    
+<script type="text/javascript" src="js/jquery-ui-1.11.3.custom/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui-1.11.3.custom/jquery-ui.min.js"></script>
     
     
@@ -147,6 +162,12 @@
 			});
 			animate();
 			
+			playButtonView = demo.toggleButtonView(synthriver, ".playButtonRiver");
+            playButtonView = demo.toggleButtonView(synthmouse, ".playButtonMouse");
+            playButtonView = demo.toggleButtonView(synthmic, ".playButtonMic");
+            playButtonView = demo.toggleButtonView(synthmoldau, ".playButtonMoldau");
+            playButtonView = demo.toggleButtonView(synthbirds, ".playButtonBirds");
+
 		  });
 		  
 		  $( "#slider" ).on( "slide", function( event, ui ) {
