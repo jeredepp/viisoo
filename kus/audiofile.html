@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Audio File Decoding Demo</title>
+        <title>Viisoo Audio Part</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="shared/css/demos.css" />
         <link rel="stylesheet" type="text/css" href="css/audiofile.css" />
@@ -36,6 +36,7 @@
             <button class="playButtonMouse">Mouse</button>
             <button class="playButtonMic">Mic</button>
             <button class="playButtonMoldau">Moldau</button>
+            <button class="playButtonBirds">Birds</button>
 <!--/*            <button class="playButtonStone">Play</button> -->
         </div>
         <div class="speedSelector">
@@ -84,8 +85,16 @@ var synthmoldau = flock.synth({
     }
 });
 
-
-
+var synthbirds = flock.synth({
+    synthDef: {
+        ugen: "flock.ugen.playBuffer",
+        buffer: {
+            url: "sounds/birds.mp3"
+        },
+                        speed: 1.0,
+                        loop: 1.0
+    }
+});
 var synthstone = flock.synth({
     synthDef: {
         ugen: "flock.ugen.playBuffer",
@@ -152,6 +161,7 @@ var synthmic = flock.synth({
             playButtonView = demo.toggleButtonView(synthmouse, ".playButtonMouse");
             playButtonView = demo.toggleButtonView(synthmic, ".playButtonMic");
             playButtonView = demo.toggleButtonView(synthmoldau, ".playButtonMoldau");
+            playButtonView = demo.toggleButtonView(synthbirds, ".playButtonBirds");
 //            $( ".playButtonStone" ).click(function() {  synthstone.play();});
 
 
