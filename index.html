@@ -2,71 +2,96 @@
 <html>
   <head>
     <style>
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-      
-      #slider {
-      	width:500px;
-      	margin-top:600px;
-      }
-      
-      #bgCanvas {
-      	z-index:1;
-      	position:absolute;
-    	left:0px;
-    	top:0px;
-      }
-      
-      #fgCanvas {
-      	z-index:2;
-      	position:absolute;
-    	left:0px;
-    	top:0px;
-      }
-      
-      #fgCanvas2 {
-      	z-index:3;
-      	position:absolute;
-    	left:0px;
-    	top:0px;
-      }
+		body {
+			margin: 0px;
+			padding: 0px;
+			background-image:url('images_done/wall_crop.jpg');
+			background-size:cover;
+			background-repeat:no-repeat;
+		}
+		
+		#slider {
+			width:500px;
+			margin-top:600px;
+			display:none;
+		}
+		
+		#pattern {
+			z-index:1;
+			position:absolute;
+			left:0px;
+			top:0px;
+		}
+		
+		#bgCanvas {
+			z-index:2;
+			position:absolute;
+			left:0px;
+			top:0px;
+		}
+		
+		#fgCanvas {
+			z-index:3;
+			position:absolute;
+			left:0px;
+			top:0px;
+		}
+		
+		#fgCanvas2 {
+			z-index:4;
+			position:absolute;
+			left:0px;
+			top:0px;
+		}
+		
+		#canvaswrapper {
+			position:relative;
+		}
+		
+		canvas {
+			left: 50% !important;
+			margin-left: -250px;
+			margin-top: 30px;
+		}
     </style>
     
 	<link rel="stylesheet" href="js/jquery-ui-1.11.3.custom/jquery-ui.min.css">
   </head>
   <body>
-  	<div id="canvaswrapper">
-  	<canvas id="bgCanvas" width="500px" height="380px"></canvas>
-    <canvas id="fgCanvas" width="500px" height="380px"></canvas>
-    <canvas id="fgCanvas2" width="500px" height="380px"></canvas>
-    </div>
+  <div id="canvasWrapper">
+	<canvas id="pattern" class="canvas" width="500px" height="380px"></canvas>
+  	<canvas id="bgCanvas" class="canvas" width="500px" height="380px"></canvas>
+    <canvas id="fgCanvas" class="canvas" width="500px" height="380px"></canvas>
+    <canvas id="fgCanvas2" class="canvas" width="500px" height="380px"></canvas>
+  </div>
 	<div id="slider"></div>
 	
     <script type="text/javascript" src="js/jquery-ui-1.11.3.custom/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui-1.11.3.custom/jquery-ui.min.js"></script>
     <script type="text/javascript" src="imageLoader.js"></script>
+    <script type="text/javascript" src="synthdef.js"></script>
+    <script type="text/javascript" src="audioControll.js"></script>
+	
     <script type="text/javascript">
 	
-		window.setInterval(function(){
-			animate();
-		},20);
 
 		$(function() {
-			drawImage('fgCanvas','images_done/CH-NB/CH-NB_-_Kopenhagen_-_Eduard_Spelterini_-_EAD-WEHR-32046-B.tif.jpg.png',1);
-			drawImage('fgCanvas2','images_done/CH-NB/CH-NB_-_Kopenhagen_-_Eduard_Spelterini_-_EAD-WEHR-32046-B.tif.jpg_Floated_Layer.png',1);
+			drawPattern();
+			drawImageToCanvas('fgCanvas','images_done/CH-NB/CH-NB_-_Kopenhagen_-_Eduard_Spelterini_-_EAD-WEHR-32046-B.tif.jpg.png',1);
+			drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Kopenhagen_-_Eduard_Spelterini_-_EAD-WEHR-32046-B.tif.jpg_Floated_Layer.png',1);
 			$("#slider").slider({
 			  max: 1,
 			  step: 0.01
 			});
+			animate();
+			
 		  });
 		  
 		  $( "#slider" ).on( "slide", function( event, ui ) {
 		  	var value = $( "#slider" ).slider( "values", 0 );
 		  	//console.log(value);
-			drawImage('fgCanvas2','images_done/CH-NB/CH-NB_-_Kopenhagen_-_Eduard_Spelterini_-_EAD-WEHR-32046-B.tif.jpg_Floated_Layer.png', value);
-		  } );
+			drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Kopenhagen_-_Eduard_Spelterini_-_EAD-WEHR-32046-B.tif.jpg_Floated_Layer.png', value);
+		  });
     </script>
     
     
