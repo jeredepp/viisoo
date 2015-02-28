@@ -14,10 +14,9 @@
         style="border:0px solid #000000;">
 </canvas>
 
-<input type="button" name="seln" value="West" onclick="toggleRichtung(0);">
-<input type="button" name="sels" value="Sued" onclick="toggleRichtung(1);">
-<input type="button" name="selw" value="Nord" onclick="toggleRichtung(2);">
-<input type="button" name="selo" value="Ost" onclick="toggleRichtung(3);">
+<input type="button" name="seln" value="West" onclick="setRichtung(0);">
+<input type="button" name="selw" value="Nord" onclick="setRichtung(1);">
+
 <script>
 
 
@@ -66,36 +65,47 @@
             case 0:
                 ctxd.drawImage(img, vx, 0);
                 ctxd.drawImage(img, img.width - Math.abs(vx), 0);
+                if (Math.abs(vx) > img.width) {
+                    vx = 0;
+                }
+                vx -= 2;
                 break;
             case 1:
-                ctxd.drawImage(img, vx, 0);
-                ctxd.drawImage(img, img.width + Math.abs(vx), 0);
+                ctxd.drawImage(img,0 , vx);
+                ctxd.drawImage(img,0 ,img.width - Math.abs(vx) );
+                if (Math.abs(vx) > img.width) {
+                    vx = 0;
+                }
+                vx -= 2;
                 break;
             case 2:
                 ctxd.drawImage(img,0 , vx);
                 ctxd.drawImage(img,0 ,img.width - Math.abs(vx) );
+                if (Math.abs(vx) > img.width) {
+                    vx = 0;
+                }
+                vx += 2;
                 break;
             case 3:
                 ctxd.drawImage(img,0 , vx);
                 ctxd.drawImage(img,0 ,img.width + Math.abs(vx) );
+                if (Math.abs(vx) > img.width) {
+                    vx = 0;
+                }
+                vx += 2;
                 break;
             default:
             break;
         }
 
 
-        if (Math.abs(vx) > img.width) {
-            vx = 0;
-        }
 
-        vx -= 2;
     }());
 
 
-    function toggleRichtung(richt)
+    function setRichtung(richt)
     {
        richtung = richt;
-
     }
 
 
