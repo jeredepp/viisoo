@@ -179,7 +179,8 @@
 			drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg_Floated_Layer.png',0.8);
 			$("#slider").slider({
 			  max: 1,
-			  step: 0.01
+			  step: 0.01,
+			  value: 0.2
 			});
 			animate();
 			
@@ -193,7 +194,9 @@
 		  
 		  $( "#slider" ).on( "slide", function( event, ui ) {
 		  	var value = 1 - $( "#slider" ).slider( "values", 0 );
+		  	var value2 = $( "#slider" ).slider( "values", 0 );
 		  	//console.log(value);
+		  	synthriver.input("player.speed", value2 * 2);
 			drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg_Floated_Layer.png', value);
 		  });
     </script>
