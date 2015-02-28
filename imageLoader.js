@@ -33,7 +33,7 @@ function animate() {
     
  	// Velocity X
     var vx = 0;
-    var speed = 1;
+    var speed = 0.5;
 
     (function renderGame() {
         window.requestAnimationFrame(renderGame);
@@ -41,7 +41,7 @@ function animate() {
         ctxd.clearRect(0, 0, ctxd.width, ctxd.height);
 
         ctxd.fillRect(0, 0, ctxd.width, ctxd.height);
-		console.log(vx);
+		
         switch(richtung) {
             case 0:
                 ctxd.drawImage(img, vx, 0);
