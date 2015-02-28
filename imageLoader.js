@@ -33,7 +33,7 @@ function animate() {
     
  	// Velocity X
     var vx = 0;
-    var speed = 0.5;
+    var speed = 0.05;
 
     (function renderGame() {
         window.requestAnimationFrame(renderGame);
