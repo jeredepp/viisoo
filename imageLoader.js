@@ -8,9 +8,17 @@ function getRandomColor() {
 }
 
 function drawPattern(){
-	var canvas = document.getElementById("pattern");
+
+	  var canvas = document.getElementById("pattern");
     var ctx = canvas.getContext("2d");
     var rand = ['#0000ff', '#1919ff', '#3232ff', '#4c4cff', '#6666ff', '#7f7fff', '#9999ff', '#b2b2ff', '#ccccff', '#e5e5ff', '#ffffff'];
+    	
+    
+	  var canvas2 = document.getElementById("fgCanvas");
+    var dataURL = canvas2.toDataURL("image/jpg");
+    dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+    console.log(dataURL);
+    
     // Find upscale ratio: //
     var ratio = 1;
     if(ctx.webkitBackingStorePixelRatio < 2)
@@ -29,7 +37,9 @@ function drawPattern(){
         for(j = 0; j < canvas.height*ratio; j++) {
             color = rand[Math.floor((Math.random() * 10) + 1)];
             ctx.fillStyle = color;
-            ctx.fillRect(i, j, 1, 1);
+            ctx.font = 'italic 3pt Calibri';
+            ctx.fillText(dataURL[i+j],i,j);
+            //ctx.fillRect(i, j, 1, 1);
         }
     }
     ctx.restore();
@@ -109,7 +119,7 @@ function drawImageToCanvas(selector, imageSrc, opac, show){
         var image = new Image();
       	
       	image.src = imageSrc;
-
+      	
       	image.onload = function() {
         	ctx.drawImage(image, 0, 0, image.width, image.height,    // source rectangle
                    0, 0, canvas.width, canvas.height  // destination rectangle

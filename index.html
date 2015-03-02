@@ -193,12 +193,13 @@
 		  
       $('#loading').html('Hacking Cultural Data...');
       
-			drawPattern();
 			
       window.setTimeout(function(){
                 $('#loading').html('Hacking Cultural Data...');
           		  drawImageToCanvas('fgCanvas','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg.png',1,false);
           		  drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg_Floated_Layer.png',0.8,true);
+          		  
+			drawPattern();
       }, 500);
       
 			$("#slider").slider({
