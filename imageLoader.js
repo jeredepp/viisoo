@@ -11,15 +11,25 @@ function drawPattern(){
 	var canvas = document.getElementById("pattern");
     var ctx = canvas.getContext("2d");
     var rand = ['#0000ff', '#1919ff', '#3232ff', '#4c4cff', '#6666ff', '#7f7fff', '#9999ff', '#b2b2ff', '#ccccff', '#e5e5ff', '#ffffff'];
-	var dpi = window.devicePixelRatio;
-    for (var i = 0;i < canvas.height*dpi; i++)
+    // Find upscale ratio: //
+    var ratio = 1;
+    if(ctx.webkitBackingStorePixelRatio < 2)
     {
-        for(var j = 0; j < canvas.width*dpi; j++) {
+      // default to 1 if property not set //
+      ratio = window.devicePixelRatio || 1;
+    }
+    ctx.save();
+    ctx.scale(ratio, ratio);
+    console.log(canvas.width*ratio);
+    for (var i = 0;i < canvas.width*ratio; i++)
+    {
+        for(var j = 0; j < canvas.height*ratio; j++) {
             var color = rand[Math.floor((Math.random() * 10) + 1)];
             ctx.fillStyle = color;
             ctx.fillRect(i, j, 1, 1);
         }
     }
+    ctx.restore();
 }
 
 function animate() {
@@ -90,8 +100,8 @@ function drawImageToCanvas(selector, imageSrc, opac){
     if (canvas.getContext) {
         var ctx = canvas.getContext("2d");
         
-		ctx.globalAlpha = opac;
-		ctx.clearRect ( 0 , 0 , canvas.width, canvas.height );
+        ctx.globalAlpha = opac;
+        ctx.clearRect ( 0 , 0 , canvas.width, canvas.height );
 		
         var image = new Image();
       	
