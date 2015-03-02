@@ -37,7 +37,7 @@ function drawPattern(){
         for(j = 0; j < canvas.height*ratio; j++) {
             color = rand[Math.floor((Math.random() * 10) + 1)];
             ctx.fillStyle = color;
-            ctx.font = 'italic 3pt Calibri';
+            ctx.font = 'italic 1px Calibri';
             ctx.fillText(dataURL[i+j],i,j);
             //ctx.fillRect(i, j, 1, 1);
         }
