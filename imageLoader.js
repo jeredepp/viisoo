@@ -20,11 +20,14 @@ function drawPattern(){
     }
     ctx.save();
     ctx.scale(ratio, ratio);
-    console.log(canvas.width*ratio);
-    for (var i = 0;i < canvas.width*ratio; i++)
+    var color = rand[Math.floor((Math.random() * 10) + 1)];
+    var i = 0;
+    var j = 0;
+    
+    for (i = 0;i < canvas.width*ratio; i++)
     {
-        for(var j = 0; j < canvas.height*ratio; j++) {
-            var color = rand[Math.floor((Math.random() * 10) + 1)];
+        for(j = 0; j < canvas.height*ratio; j++) {
+            color = rand[Math.floor((Math.random() * 10) + 1)];
             ctx.fillStyle = color;
             ctx.fillRect(i, j, 1, 1);
         }
@@ -95,7 +98,7 @@ function animate() {
     
 }
 
-function drawImageToCanvas(selector, imageSrc, opac){
+function drawImageToCanvas(selector, imageSrc, opac, show){
     var canvas = document.getElementById(selector);
     if (canvas.getContext) {
         var ctx = canvas.getContext("2d");
@@ -111,6 +114,11 @@ function drawImageToCanvas(selector, imageSrc, opac){
         	ctx.drawImage(image, 0, 0, image.width, image.height,    // source rectangle
                    0, 0, canvas.width, canvas.height  // destination rectangle
             );
+          if(show){
+            window.setTimeout(function(){
+                $('canvas').fadeIn('slow');
+            },2000);
+          }
       	};
     }
 }

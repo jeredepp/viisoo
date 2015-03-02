@@ -63,6 +63,7 @@
 			left: 50% !important;
 			margin-left: -250px;
 			margin-top: 50px;
+			display:none;
 		}
 		
 		.playButtonRiver{
@@ -122,6 +123,13 @@
 			font-size:30px;
 		}
 		
+		#loading {
+		  margin:0px auto;
+		  text-align:center;
+		  margin-top:150px;
+		}
+		
+		
 	
     </style>
     
@@ -129,22 +137,25 @@
   </head>
   <body>
   <div id="canvasWrapper">
-	<canvas id="pattern" class="canvas" width="500px" height="380px"></canvas>
+	  <canvas id="pattern" class="canvas" width="500px" height="380px"></canvas>
   	<canvas id="bgCanvas" class="canvas" width="500px" height="380px"></canvas>
     <canvas id="fgCanvas" class="canvas" width="500px" height="380px"></canvas>
     <canvas id="fgCanvas2" class="canvas" width="500px" height="380px"></canvas>
   </div>
 	<div id="slider"></div>
-	
-	<div class="playButtonRiver"></div>
-    <div class="playButtonMouse"></div>
-    <div class="playButtonMic"></div>
-    <div class="playButtonMoldau"></div>
-    <div class="playButtonBirds"></div>
-  	<div class="footer">Kollektiv Zoll - Wir setzen neue Grenzen</div>
-			<div class="view" style="display:none;">
-            <canvas id="waveform" height="100" width="960"></canvas>
-        </div>
+  
+  <p id="loading">Loading...</p>
+  
+  <div class="playButtonRiver"></div>
+  <div class="playButtonMouse"></div>
+  <div class="playButtonMic"></div>
+  <div class="playButtonMoldau"></div>
+  <div class="playButtonBirds"></div>
+  <div class="footer">Kollektiv Zoll - Wir setzen neue Grenzen</div>
+  
+  <div class="view" style="display:none;">
+      <canvas id="waveform" height="100" width="960"></canvas>
+  </div>
     <script type="text/javascript" src="js/jquery-ui-1.11.3.custom/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui-1.11.3.custom/jquery-ui.min.js"></script>
         
@@ -173,10 +184,19 @@
     <script type="text/javascript">
 	
 
-		$(function() {
+		$(function() {	
+		  
+		  
+      $('#loading').html('Hacking Cultural Data...');
+      
 			drawPattern();
-			drawImageToCanvas('fgCanvas','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg.png',1);
-			drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg_Floated_Layer.png',0.8);
+			
+      window.setTimeout(function(){
+                $('#loading').html('Hacking Cultural Data...');
+          		  drawImageToCanvas('fgCanvas','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg.png',1,false);
+          		  drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg_Floated_Layer.png',0.8,true);
+      }, 500);
+      
 			$("#slider").slider({
 			  max: 1,
 			  step: 0.01,
@@ -185,20 +205,22 @@
 			animate();
 			
 			playButtonView = demo.toggleButtonView(synthriver, ".playButtonRiver");
-            playButtonView = demo.toggleButtonView(synthmouse, ".playButtonMouse");
-            playButtonView = demo.toggleButtonView(synthmic, ".playButtonMic");
-            playButtonView = demo.toggleButtonView(synthmoldau, ".playButtonMoldau");
-            playButtonView = demo.toggleButtonView(synthbirds, ".playButtonBirds");
+      playButtonView = demo.toggleButtonView(synthmouse, ".playButtonMouse");
+      playButtonView = demo.toggleButtonView(synthmic, ".playButtonMic");
+      playButtonView = demo.toggleButtonView(synthmoldau, ".playButtonMoldau");
+      playButtonView = demo.toggleButtonView(synthbirds, ".playButtonBirds");
 			
-			synthmoldau.play();
+      window.setTimeout(function(){
+        $('#loading').html('Systhesizing Moldau...');
+			  synthmoldau.play();
+      }, 1500);
 		  });
 		  
 		  $( "#slider" ).on( "slide", function( event, ui ) {
 		  	var value = 1 - $( "#slider" ).slider( "values", 0 );
 		  	var value2 = $( "#slider" ).slider( "values", 0 );
-		  	//console.log(value);
 		  	synthriver.input("player.speed", value2 * 2);
-			drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg_Floated_Layer.png', value);
+		  	drawImageToCanvas('fgCanvas2','images_done/CH-NB/CH-NB_-_Zuerich,_Bahnhofstrasse_und_Rennweg_-_Eduard_Spelterini_-_EAD-WEHR-32023-A.tif.jpg_Floated_Layer.png', value);
 		  });
     </script>
     
