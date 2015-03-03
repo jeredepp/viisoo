@@ -28,14 +28,14 @@ function drawPattern(){
     }
     ctx.save();
     ctx.scale(ratio, ratio);
-    var color = rand[Math.floor((Math.random() * 10) + 1)];
+    var color = rand[Math.floor((Math.random() * 10 | 0))];
     var i = 0;
     var j = 0;
     
     for (i = 0;i < canvas.width*ratio; i++)
     {
         for(j = 0; j < canvas.height*ratio; j++) {
-            color = rand[Math.floor((Math.random() * 10) + 1)];
+            color = rand[Math.floor((Math.random() * 10))];
             ctx.fillStyle = color;
             ctx.font = 'italic 1px Calibri';
             ctx.fillText(dataURL[i+j],i,j);
